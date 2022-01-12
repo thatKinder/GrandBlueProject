@@ -35,27 +35,29 @@ let monMove = monster.animate([
 //   counter = counter += 1
 // }
 
-
-let timer=setInterval(function(){
-let Mposition = monster.getBoundingClientRect()
-//(for if Kat is hit by monster)
-  if(Mposition.right >= Kposition.left) {
-      console.log("They touched! They touched!")
-			//clearInterval(checkCollision)
-			gameOver = true
-        console.log("Game Over!")
-        clearInterval(timer)
-        monMove.pause()
-        createGameOver()
-    }
-},100)
+function startInterval(){  
+  let timer=setInterval(function(){
+  let Mposition = monster.getBoundingClientRect()
+  //(for if Kat is hit by monster)
+    if(Mposition.right >= Kposition.left) {
+        console.log("They touched! They touched!")
+        gameOver = true
+          console.log("Game Over!")
+          clearInterval(timer)
+          monMove.pause()
+          createGameOver()
+      }
+  },100)
+}
 
 function createGameOver (){
-  const divider = document.createElement('div')
+  //const divider = document.createElement('div')
   const GOMessage = document.createElement('h1')
+  GOMessage.setAttribute("id", "go-message")
   GOMessage.textContent = "Game Over" 
   GOMessage.style.textAlign = "center"
   const GOSubtitle = document.createElement('p')
+  GOSubtitle.setAttribute("id", "go-subtitle")
   GOSubtitle.textContent = "Katalina got hit. Do you want to try again?"
   GOSubtitle.style.textAlign = "center"
   containerForGameContainer.appendChild(GOMessage)
@@ -75,21 +77,28 @@ function createGameOver (){
   //CURRENT CONUNDRUM
   //makes the start over button start the game over (duh!)
   function RestartPrompt() {
+    let message = document.querySelector("#go-message")
+    let subtitle = document.querySelector("#go-subtitle")
+    let restartButton = document.querySelector(".start-button")
+    message.remove()
+    subtitle.remove()
+    restartButton.remove()
     monMove.cancel()
-    monster.animate([
+    monMove = monster.animate([
       { transform: 'translateX(0px)' },
       { transform: 'translateX(1020px)' }
     ], {
-  // timing options (done in milleseconds)
-  duration: 4000,
-  iterations: Infinity
-})
-  // monster.style.top="50%"
-  // monster.style.left="20%"
-  //monMove.play()
-  }
+    // timing options (done in milleseconds)
+    duration: 4000,
+    iterations: Infinity
+    })
+    startInterval()
+    // monster.style.top="50%"
+    // monster.style.left="20%"
+    //monMove.play()
+}
 
-
+startInterval()
 
 
 //-----Score tracker (reference from "Div Jumper"(reference material))-----
