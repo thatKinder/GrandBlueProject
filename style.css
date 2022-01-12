@@ -99,12 +99,20 @@
     left: 80%;
     height: 80px;
     width: 40px;
+    z-index: 2;
     border-radius: 50%;
     background-color: #fff;
     animation: .5s rotate;
     cursor: pointer;
   }
-  
+
+  .KatalinaStand {
+    position: absolute;
+    top: 40%;
+    left: 73%;
+    z-index: 7;
+  }
+
    .monster {
     display: block;
     position: absolute;
@@ -168,84 +176,3 @@
     bottom: 0;
     padding-bottom: 1rem;
   }
-/*   
-  .level-nav ul {
-    padding: 0;
-    margin: 0;
-    text-align: center;
-  }
-  
-  .level-nav li {
-    display: inline-block;
-    list-style-type: none;
-  }
-  
-  .level-nav li:not(:last-of-type) {
-    margin-right: 1rem;
-  }
-  
-  .level-nav a {
-    display: block;
-    position: relative;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    padding: 1rem;
-    overflow: hidden;
-    transition: all 400ms ease;
-  }
-  
-  .level-nav a:after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50%;
-    height: 200%;
-    width: 200%;
-    background-color: #fff;
-    transition: all 400ms ease;
-    transform: translateY(100%) rotate(0deg);
-    z-index: -1;
-  }
-  
-  .level-nav a:hover {
-    color: #000;
-  }
-  
-  .level-nav a:hover:after {
-    transform: translateY(-25%) rotate(10deg);
-  }
-   */
-  /*---
-   * Views
-   --- */
-  .homepage main {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
-  
-  /* .level-two .dot:first-of-type {
-    top: 35%;
-    animation-delay: 1s;
-  }
-  
-  .level-two .dot:last-of-type {
-    top: 65%;
-    animation-delay: 2s;
-  }
-  
-  .level-three .dot:first-of-type {
-    top: 35%;
-    height: 1.5rem;
-    width: 1.5rem;
-    animation-delay: 1s;
-  }
-  
-  .level-three .dot:last-of-type {
-    top: 65%;
-    height: 3rem;
-    width: 3rem;
-    animation-delay: 2s;
-  }
-   */

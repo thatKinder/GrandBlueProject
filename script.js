@@ -61,45 +61,38 @@ function createGameOver (){
   containerForGameContainer.appendChild(GOMessage)
   containerForGameContainer.appendChild(GOSubtitle)
 
-  // create a new div element?
 
-// create and modify the image of Katalina
-//const animationKat = document.createElement('img')
-// animationgraphic.setAttribute('sre', "https://gbf-img.com/character-idcharacter/3030005000_Katalina/3030005000_Katalina_01_sd.png")
-// animationgraphic.setAttribute('3030005000_Katalina_01_sd.png')
-
-// The Start Over button
   const startButton = document.createElement("button")
   startButton.classList.add("start-button")
   startButton.innerHTML = "Start Over"
   containerForGameContainer.appendChild(startButton)
   containerForGameContainer.style.Align = "center"
-
-  // const StartOver = document.createElement('h4')
-  // StartOver.textContent = "Start Over"
-  // containerForGameContainer.appendChild(StartOver){ if MouseEvent: 
+  document.querySelector(".start-button").addEventListener("click", () => {
+    RestartPrompt()
+  })
   }
-  console.log("Is this even working?")
 
-// if (gameOver == true) 
-//    {
-        //stop monster; Stop timer
-        //Animate Katalina's hurt pose.
-        //display "Game Over; Katalina got hit! Do you want to try again?"
-        //call current score and replace high score if its higher
-        //create "Start Over" button.
-//    }
-//})
+  //CURRENT CONUNDRUM
+  //makes the start over button start the game over (duh!)
+  function RestartPrompt() {
+    monMove.cancel()
+    monster.animate([
+      { transform: 'translateX(0px)' },
+      { transform: 'translateX(1020px)' }
+    ], {
+  // timing options (done in milleseconds)
+  duration: 4000,
+  iterations: Infinity
+})
+  // monster.style.top="50%"
+  // monster.style.left="20%"
+  //monMove.play()
+  }
 
 
-// function KatalinaStab() 
-// {
-    //make Katalina animate her stab
-    //set box to vanish and restart its trek across the screen if stab happens while Mposition is within (300px?) of Kposition
-    //raise score/kill count by 1
-// }
 
-//-----Score tracker (reference from "Div Jumper")-----
+
+//-----Score tracker (reference from "Div Jumper"(reference material))-----
 
 // function startScoreTracker() 
 // {
