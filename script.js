@@ -24,16 +24,33 @@ let monMove = monster.animate([
   iterations: Infinity
 });
 
-// addEventListener("keydown", function(KatSlash){
-//   switch(event.code) {
-//     case "KeyE":
-//     case "KeySpace":
-//    (KatSlash = true)}
 
-// if (Mposition.right >= (slashReach) && Katslash == true {
-//   (return monMove) 
-//   counter = counter += 1
-// }
+  function Slash(){
+  switch(event.code) {
+    case "KeyE":
+    case "KeySpace":
+    }KatSlash = true
+    // console.log(Mposition.right)
+    console.log(KatSlash)
+    let Mposition = monster.getBoundingClientRect()
+    console.log(Mposition.right)
+    console.log(Kposition.left)
+    if (KatSlash == true && Mposition.right >= Kposition.left - 300 && gameOver == false) {
+      monMove.pause()
+      //counter = counter += 1
+      //monster.blink()
+      monMove = monster.animate([
+        { transform: 'translateX(0px)' },
+        { transform: 'translateX(1020px)' }
+        ], {
+          // timing options (done in milleseconds)
+          duration: 4000,
+          iterations: Infinity
+        }
+    )}}
+  // //CURRENT CONUNDRUM
+addEventListener("keydown", Slash)
+
 
 function startInterval(){  
   let timer=setInterval(function(){
@@ -74,7 +91,6 @@ function createGameOver (){
   })
   }
 
-  //CURRENT CONUNDRUM
   //makes the start over button start the game over (duh!)
   function RestartPrompt() {
     let message = document.querySelector("#go-message")
@@ -83,6 +99,8 @@ function createGameOver (){
     message.remove()
     subtitle.remove()
     restartButton.remove()
+    addEventListener("keydown", Slash)
+    gameOver = false
     monMove.cancel()
     monMove = monster.animate([
       { transform: 'translateX(0px)' },
